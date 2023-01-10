@@ -2,7 +2,10 @@ package com.example.demo.uce.modelo;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -10,6 +13,8 @@ import jakarta.persistence.Table;
 public class Estudiante {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estu_seq")
+	@SequenceGenerator(name="estu_seq",sequenceName = "estu_seq",allocationSize = 1)
 	@Column(name = "estu_id")
 	private Integer id;
 	
@@ -75,6 +80,13 @@ public class Estudiante {
 
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
-	}	
+	}
+
+	@Override
+	public String toString() {
+		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", genero=" + genero
+				+ ", cedula=" + cedula + ", ciudad=" + ciudad + "]";
+	}
 	
+		
 }
