@@ -1,5 +1,8 @@
 package com.example.demo.uce.modelo;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,9 +15,9 @@ import jakarta.persistence.Table;
 @Table (name = "estudiante")
 public class Estudiante {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estu_seq")
+	@Id	
 	@SequenceGenerator(name="estu_seq",sequenceName = "estu_seq",allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estu_seq")
 	@Column(name = "estu_id")
 	private Integer id;
 	
@@ -32,6 +35,12 @@ public class Estudiante {
 	
 	@Column(name = "estu_ciudad")
 	private String ciudad;
+	
+	@Column(name = "estu_salario")
+	private BigDecimal salario;
+	
+	@Column(name = "estu_fecha_naciemiento")
+	private LocalDateTime fechaNacimiento;
 	
 	//SET Y GET
 	public Integer getId() {
