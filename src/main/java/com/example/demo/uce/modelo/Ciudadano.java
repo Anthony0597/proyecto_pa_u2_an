@@ -1,5 +1,6 @@
 package com.example.demo.uce.modelo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,16 +16,16 @@ import jakarta.persistence.Table;
 public class Ciudadano {
 	
 	@Id
-	@Column(name = "ciud_id")
 	@SequenceGenerator(name="ciud_seq",sequenceName = "ciud_seq",allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ciud_seq")
+	@Column(name = "ciud_id")
 	private Integer id;
 	@Column(name = "ciud_nombre")
 	private String nombre;
 	@Column(name = "ciud_apellido")
 	private String apellido;
 	
-	@OneToOne(mappedBy = "ciudadano")	
+	@OneToOne(mappedBy = "ciudadano", cascade = CascadeType.ALL)	
 	private Empleado empleado;
 
 	public Integer getId() {

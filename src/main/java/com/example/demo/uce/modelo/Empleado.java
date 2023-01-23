@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.cglib.core.Local;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,16 +20,16 @@ import jakarta.persistence.Table;
 @Entity
 public class Empleado {
 	@Id
-	@Column(name = "empl_id")
 	@SequenceGenerator(name="empl_seq",sequenceName = "empl_seq",allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "empl_seq")
+	@Column(name = "empl_id")
 	private Integer id;
 	@Column(name = "empl_salario")
 	private BigDecimal salario;
 	@Column(name="empl_fecha_ingreso")
 	private LocalDateTime fechaIngreso;
 	
-	@OneToOne(mappedBy = "empleado")
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "empl_id_ciudadano")
 	private Ciudadano ciudadano;
 
