@@ -25,7 +25,7 @@ public class Ciudadano {
 	@Column(name = "ciud_apellido")
 	private String apellido;
 	
-	@OneToOne(mappedBy = "ciudadano", cascade = CascadeType.ALL)	
+	@OneToOne(mappedBy = "ciudadano")//, cascade = CascadeType.ALL)	
 	private Empleado empleado;
 
 	public Integer getId() {

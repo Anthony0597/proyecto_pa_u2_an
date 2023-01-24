@@ -1,16 +1,12 @@
 package com.example.demo;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.uce.modelo.Ciudadano;
-import com.example.demo.uce.modelo.Empleado;
-import com.example.demo.uce.modelo.Estudiante;
+import com.example.demo.uce.modelo.Habitacion;
+import com.example.demo.uce.modelo.Hotel;
 import com.example.demo.uce.service.ICiudadanoService;
 import com.example.demo.uce.service.IEmpleadoService;
 import com.example.demo.uce.service.IEstudianteService;
@@ -32,15 +28,8 @@ public class ProyectoPaU2AnApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		/*Estudiante estu = new Estudiante();
-		estu.setNombre("Anthony");
-		estu.setApellido("Naranjo");
-		estu.setCedula("1765894532");
-		estu.setCiudad("Quito");
-		estu.setGenero("M");
-		//this.estudianteService.agregar(estu);*/
-		
-		Ciudadano ciu= new Ciudadano();
+				
+		/*Ciudadano ciu= new Ciudadano();
 		Empleado empl = new Empleado();
 		
 		ciu.setNombre("Edison");
@@ -53,22 +42,29 @@ public class ProyectoPaU2AnApplication implements CommandLineRunner{
 		ciu.setEmpleado(empl);
 		empl.setCiudadano(ciu);
 		
-		this.ciudadanoService.guardar(ciu);
+		this.ciudadanoService.guardar(ciu);*/
 		
 		
-		Ciudadano tempC;
-		tempC = this.ciudadanoService.mostrar(3);
-		tempC.setNombre("Juan");
-		tempC.setApellido("Perez");
-		this.ciudadanoService.modificar(tempC);
+		//Ejemplo 2:
 		
-		this.ciudadanoService.borrar(ciu.getId());
+		/*Empleado empl2 = new Empleado();
+		empl2.setSalario(new BigDecimal(200));
+		empl2.setFechaIngreso(LocalDateTime.now());
 		
-		Empleado tempE;
-		tempE = this.empleadoService.mostrar(2);
-		tempE.setSalario(new BigDecimal(300));
-		this.empleadoService.modificar(tempE);
-				
+		
+		Ciudadano ciu2 = new Ciudadano();
+		ciu2.setNombre("Juan");
+		ciu2.setApellido("Perez");
+		
+		ciu2.setEmpleado(empl2);
+		
+		empl2.setCiudadano(ciu2);
+		
+		this.empleadoService.guardar(empl2);*/
+		
+		Hotel hotel = new Hotel();
+		
+		Habitacion habitacion = new Habitacion();
 		
 	}
 
