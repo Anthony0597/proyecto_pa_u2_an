@@ -34,6 +34,12 @@ public class HotelRepoImpl implements IHotelRepo {
 		hotel.getHabitaciones().size();
 		return hotel;		
 	}
+	
+	public Hotel buscarLigero(Integer id) {
+		// TODO Auto-generated method stub
+		Hotel hotel = this.entityManager.find(Hotel.class, id);
+		return hotel;		
+	}
 
 	@Override
 	public void eliminar(Integer id) {
